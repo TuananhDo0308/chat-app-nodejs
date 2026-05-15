@@ -689,3 +689,174 @@ tr:last-child td {
 }
 
 
+
+/* ==========================================================================
+   Friends Page Styles
+   ========================================================================== */
+.friends-pending-panel {
+  border-left: 3px solid var(--brand);
+}
+
+.friends-request-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.friend-request-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.friend-request-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.friend-request-info strong {
+  display: block;
+  font-size: 14px;
+}
+
+.friend-request-info small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.friend-request-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.friends-avatar {
+  width: 44px;
+  height: 44px;
+  font-size: 1.1rem;
+}
+
+.friends-avatar-sm {
+  width: 36px;
+  height: 36px;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.friends-list-panel {
+  display: grid;
+  gap: 8px;
+}
+
+.friends-list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: var(--radius);
+  transition: background 0.15s;
+}
+
+.friends-list-item:hover {
+  background: var(--surface-2);
+}
+
+.friends-list-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.friends-list-info strong {
+  display: block;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.friends-list-info small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.friends-list-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.friends-list-actions button,
+.friend-request-actions button {
+  min-height: 32px;
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.friends-discover-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.friends-discover-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: box-shadow 0.15s;
+}
+
+.friends-discover-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.friends-discover-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.friends-discover-info strong {
+  display: block;
+  font-size: 14px;
+}
+
+.friends-discover-info small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.friends-discover-card button {
+  min-height: 32px;
+  padding: 5px 12px;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* Chat input area */
+.chat-input-area {
+  display: flex;
+  gap: 8px;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #f0f0f0;
+  background: #fff;
+}
+
+.chat-input-area input {
+  flex: 1;
+}
+
+.chat-input-area button {
+  padding: 8px 20px;
+  background: #0084ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}

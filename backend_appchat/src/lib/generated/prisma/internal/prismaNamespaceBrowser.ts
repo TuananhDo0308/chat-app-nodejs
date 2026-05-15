@@ -58,6 +58,9 @@ export const ModelName = {
   Permission: 'Permission',
   UserRole: 'UserRole',
   RolePermission: 'RolePermission',
+  UserPublicKey: 'UserPublicKey',
+  UserKeyBundle: 'UserKeyBundle',
+  OneTimePreKey: 'OneTimePreKey',
   AuthSession: 'AuthSession'
 } as const
 
@@ -147,6 +150,39 @@ export const RolePermissionScalarFieldEnum = {
 } as const
 
 export type RolePermissionScalarFieldEnum = (typeof RolePermissionScalarFieldEnum)[keyof typeof RolePermissionScalarFieldEnum]
+
+
+export const UserPublicKeyScalarFieldEnum = {
+  userId: 'userId',
+  publicKey: 'publicKey',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UserPublicKeyScalarFieldEnum = (typeof UserPublicKeyScalarFieldEnum)[keyof typeof UserPublicKeyScalarFieldEnum]
+
+
+export const UserKeyBundleScalarFieldEnum = {
+  userId: 'userId',
+  identityKey: 'identityKey',
+  identitySignKey: 'identitySignKey',
+  signedPreKey: 'signedPreKey',
+  signedPreKeySig: 'signedPreKeySig',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UserKeyBundleScalarFieldEnum = (typeof UserKeyBundleScalarFieldEnum)[keyof typeof UserKeyBundleScalarFieldEnum]
+
+
+export const OneTimePreKeyScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  keyId: 'keyId',
+  publicKey: 'publicKey',
+  used: 'used',
+  createdAt: 'createdAt'
+} as const
+
+export type OneTimePreKeyScalarFieldEnum = (typeof OneTimePreKeyScalarFieldEnum)[keyof typeof OneTimePreKeyScalarFieldEnum]
 
 
 export const AuthSessionScalarFieldEnum = {

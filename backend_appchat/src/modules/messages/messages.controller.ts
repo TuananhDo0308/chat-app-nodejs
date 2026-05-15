@@ -1,5 +1,6 @@
 import type { Request, Response } from "express"
 import * as messagesService from "./messages.service.js"
+import { sendResponse } from "../../utils/response.js"
 
 export async function sendMessage(req: Request, res: Response) {
     const { senderId, receiverId, content } = req.body
@@ -10,7 +11,7 @@ export async function sendMessage(req: Request, res: Response) {
 export async function getMessagesByFriendId(req: Request, res: Response) {
     const { userId, friendId } = req.params
     const messages = await messagesService.getMessagesByFriendId(userId as string, friendId as string)
-    return res.json(messages)
+    return sendResponse(res, 200, "Get messages successfully", messages)
 }
 
 export async function getConversations(req: Request, res: Response) {

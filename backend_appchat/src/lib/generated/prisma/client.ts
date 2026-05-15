@@ -77,6 +77,21 @@ export type UserRole = Prisma.UserRoleModel
  */
 export type RolePermission = Prisma.RolePermissionModel
 /**
+ * Model UserPublicKey
+ * 
+ */
+export type UserPublicKey = Prisma.UserPublicKeyModel
+/**
+ * Model UserKeyBundle
+ * 
+ */
+export type UserKeyBundle = Prisma.UserKeyBundleModel
+/**
+ * Model OneTimePreKey
+ * 
+ */
+export type OneTimePreKey = Prisma.OneTimePreKeyModel
+/**
  * Model AuthSession
  * 
  */

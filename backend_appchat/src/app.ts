@@ -7,6 +7,8 @@ import roleRoutes from "./modules/roles/role.route.js"
 import rolePermissionRoutes from "./modules/rolePermission/rolePermission.route.js"
 import permissionRoutes from "./modules/permissions/permissions.route.js"
 import friendRoutes from "./modules/friends/friends.route.js"
+import messageRoutes from "./modules/messages/messages.route.js"
+import keyRoutes from "./modules/keys/keys.route.js"
 
 import cookieParser from "cookie-parser"
 
@@ -50,5 +52,7 @@ app.use("/api/roles", roleRoutes)
 app.use("/api/role-permissions", rolePermissionRoutes)
 app.use("/api/permissions", permissionRoutes)
 app.use("/api/friends", friendRoutes)
+app.use("/api/messages", messageRoutes)
+app.use("/api/keys", keyRoutes)
 
 export default app

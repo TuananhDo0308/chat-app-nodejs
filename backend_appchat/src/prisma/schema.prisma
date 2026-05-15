@@ -27,6 +27,8 @@ model User {
   receivedFriendRequests Friendship[]  @relation("ReceivedRequests")
   sentMessages           ChatMessage[] @relation("SentMessages")
   receivedMessages       ChatMessage[] @relation("ReceivedMessages")
+  keyBundle              UserKeyBundle?
+  publicKey              UserPublicKey?
 }
 
 model Friendship {
@@ -98,6 +100,45 @@ model RolePermission {
   permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
 
   @@id([roleId, permissionId])
+}
+
+// E2EE — simple ECDH public key per user
+model UserPublicKey {
+  userId    String   @id
+  publicKey String   // base64 raw ECDH P-256 public key
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_public_keys")
+}
+
+// Legacy X3DH models kept to avoid breaking existing DB
+model UserKeyBundle {
+  userId          String        @id
+  identityKey     String
+  identitySignKey String
+  signedPreKey    String
+  signedPreKeySig String
+  updatedAt       DateTime      @updatedAt
+
+  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  oneTimePreKeys OneTimePreKey[]
+
+  @@map("user_key_bundles")
+}
+
+model OneTimePreKey {
+  id        String        @id @default(uuid())
+  userId    String
+  keyId     String
+  publicKey String
+  used      Boolean       @default(false)
+  createdAt DateTime      @default(now())
+
+  bundle    UserKeyBundle @relation(fields: [userId], references: [userId], onDelete: Cascade)
+
+  @@map("one_time_prekeys")
 }
 
 model AuthSession {

@@ -3,6 +3,7 @@ import createRegisterForm from "../components/auth/RegisterForm.js"
 import router from "../router.js"
 import authService from "../services/authApi.js"
 import { setAccessToken } from "../config/http.js"
+import { ensureKeys } from "../crypto/e2ee.js"
 
 function authPage() {
   let selectedTab = "login"
@@ -12,6 +13,9 @@ function authPage() {
     try {
       const response = await authService.login(data)
       setAccessToken(response.data.accessToken)
+      localStorage.setItem("user", JSON.stringify(response.data.user))
+      // Generate E2EE keys (no-op if already generated)
+      ensureKeys().catch((err) => console.warn("E2EE key setup failed:", err))
       router.push("/users", true)
     } catch (error) {
       console.error(error)

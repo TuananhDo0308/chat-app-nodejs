@@ -42,6 +42,13 @@ export async function patchFriendResponse(userId: string, friendId: string, stat
     })
 }
 
+export async function getSentRequests(userId: string) {
+    return prisma.friendship.findMany({
+        where: { userId, status: FriendshipStatus.PENDING },
+        include: { friend: true }
+    })
+}
+
 export async function deleteFriend(userId: string, friendId: string) {
     return prisma.friendship.delete({
         where: {

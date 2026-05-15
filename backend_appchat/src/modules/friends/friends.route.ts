@@ -12,6 +12,9 @@ router.get('/', authMiddleware, checkPermission(PERMISSIONS.FRIEND.READ), friend
 // Lấy danh sách lời mời kết bạn đang chờ
 router.get('/pending', authMiddleware, checkPermission(PERMISSIONS.FRIEND.READ), friendsController.getPendingRequests)
 
+// Lấy danh sách lời mời đã gửi đi
+router.get('/sent', authMiddleware, checkPermission(PERMISSIONS.FRIEND.READ), friendsController.getSentRequests)
+
 // Gửi lời mời kết bạn mới
 router.post('/request', authMiddleware, checkPermission(PERMISSIONS.FRIEND.CREATE), friendsController.addFriend)
 

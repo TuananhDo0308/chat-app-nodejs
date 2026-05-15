@@ -50,10 +50,15 @@ async function main() {
 
   // 4. Gán một số quyền hạn chế cho USER (Ví dụ chỉ cho READ)
   console.log("Assigning limited permissions to USER...");
-  const userPermNames = [PERMISSIONS.USER.READ, PERMISSIONS.ROLE.READ];
-  const userPerms = permissionRecords.filter(p => userPermNames.includes(p.name as "USER_READ" | "ROLE_READ"));
+  const userPermNames = [
+    ...Object.values(PERMISSIONS.USER),
+    ...Object.values(PERMISSIONS.ROLE),
+    ...Object.values(PERMISSIONS.PERMISSION),
+    ...Object.values(PERMISSIONS.FRIEND),
+    ...Object.values(PERMISSIONS.MESSAGE),
+  ];
 
-  for (const perm of userPerms) {
+  for (const perm of permissionRecords) {
     await prisma.rolePermission.upsert({
       where: { roleId_permissionId: { roleId: userRole.id, permissionId: perm.id } },
       update: {},

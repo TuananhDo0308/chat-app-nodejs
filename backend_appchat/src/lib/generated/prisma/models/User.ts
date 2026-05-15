@@ -196,6 +196,8 @@ export type UserWhereInput = {
   receivedFriendRequests?: Prisma.FriendshipListRelationFilter
   sentMessages?: Prisma.ChatMessageListRelationFilter
   receivedMessages?: Prisma.ChatMessageListRelationFilter
+  keyBundle?: Prisma.XOR<Prisma.UserKeyBundleNullableScalarRelationFilter, Prisma.UserKeyBundleWhereInput> | null
+  publicKey?: Prisma.XOR<Prisma.UserPublicKeyNullableScalarRelationFilter, Prisma.UserPublicKeyWhereInput> | null
 }
 
 export type UserOrderByWithRelationInput = {
@@ -211,6 +213,8 @@ export type UserOrderByWithRelationInput = {
   receivedFriendRequests?: Prisma.FriendshipOrderByRelationAggregateInput
   sentMessages?: Prisma.ChatMessageOrderByRelationAggregateInput
   receivedMessages?: Prisma.ChatMessageOrderByRelationAggregateInput
+  keyBundle?: Prisma.UserKeyBundleOrderByWithRelationInput
+  publicKey?: Prisma.UserPublicKeyOrderByWithRelationInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -229,6 +233,8 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   receivedFriendRequests?: Prisma.FriendshipListRelationFilter
   sentMessages?: Prisma.ChatMessageListRelationFilter
   receivedMessages?: Prisma.ChatMessageListRelationFilter
+  keyBundle?: Prisma.XOR<Prisma.UserKeyBundleNullableScalarRelationFilter, Prisma.UserKeyBundleWhereInput> | null
+  publicKey?: Prisma.XOR<Prisma.UserPublicKeyNullableScalarRelationFilter, Prisma.UserPublicKeyWhereInput> | null
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -268,6 +274,8 @@ export type UserCreateInput = {
   receivedFriendRequests?: Prisma.FriendshipCreateNestedManyWithoutFriendInput
   sentMessages?: Prisma.ChatMessageCreateNestedManyWithoutSenderInput
   receivedMessages?: Prisma.ChatMessageCreateNestedManyWithoutReceiverInput
+  keyBundle?: Prisma.UserKeyBundleCreateNestedOneWithoutUserInput
+  publicKey?: Prisma.UserPublicKeyCreateNestedOneWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -283,6 +291,8 @@ export type UserUncheckedCreateInput = {
   receivedFriendRequests?: Prisma.FriendshipUncheckedCreateNestedManyWithoutFriendInput
   sentMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutSenderInput
   receivedMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutReceiverInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedCreateNestedOneWithoutUserInput
+  publicKey?: Prisma.UserPublicKeyUncheckedCreateNestedOneWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -298,6 +308,8 @@ export type UserUpdateInput = {
   receivedFriendRequests?: Prisma.FriendshipUpdateManyWithoutFriendNestedInput
   sentMessages?: Prisma.ChatMessageUpdateManyWithoutSenderNestedInput
   receivedMessages?: Prisma.ChatMessageUpdateManyWithoutReceiverNestedInput
+  keyBundle?: Prisma.UserKeyBundleUpdateOneWithoutUserNestedInput
+  publicKey?: Prisma.UserPublicKeyUpdateOneWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -313,6 +325,8 @@ export type UserUncheckedUpdateInput = {
   receivedFriendRequests?: Prisma.FriendshipUncheckedUpdateManyWithoutFriendNestedInput
   sentMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutSenderNestedInput
   receivedMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutReceiverNestedInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedUpdateOneWithoutUserNestedInput
+  publicKey?: Prisma.UserPublicKeyUncheckedUpdateOneWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -456,6 +470,34 @@ export type UserUpdateOneRequiredWithoutRolesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutRolesInput, Prisma.UserUpdateWithoutRolesInput>, Prisma.UserUncheckedUpdateWithoutRolesInput>
 }
 
+export type UserCreateNestedOneWithoutPublicKeyInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPublicKeyInput, Prisma.UserUncheckedCreateWithoutPublicKeyInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPublicKeyInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutPublicKeyNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPublicKeyInput, Prisma.UserUncheckedCreateWithoutPublicKeyInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPublicKeyInput
+  upsert?: Prisma.UserUpsertWithoutPublicKeyInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPublicKeyInput, Prisma.UserUpdateWithoutPublicKeyInput>, Prisma.UserUncheckedUpdateWithoutPublicKeyInput>
+}
+
+export type UserCreateNestedOneWithoutKeyBundleInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutKeyBundleInput, Prisma.UserUncheckedCreateWithoutKeyBundleInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutKeyBundleInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutKeyBundleNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutKeyBundleInput, Prisma.UserUncheckedCreateWithoutKeyBundleInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutKeyBundleInput
+  upsert?: Prisma.UserUpsertWithoutKeyBundleInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutKeyBundleInput, Prisma.UserUpdateWithoutKeyBundleInput>, Prisma.UserUncheckedUpdateWithoutKeyBundleInput>
+}
+
 export type UserCreateNestedOneWithoutSessionsInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutSessionsInput, Prisma.UserUncheckedCreateWithoutSessionsInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutSessionsInput
@@ -482,6 +524,8 @@ export type UserCreateWithoutSentFriendRequestsInput = {
   receivedFriendRequests?: Prisma.FriendshipCreateNestedManyWithoutFriendInput
   sentMessages?: Prisma.ChatMessageCreateNestedManyWithoutSenderInput
   receivedMessages?: Prisma.ChatMessageCreateNestedManyWithoutReceiverInput
+  keyBundle?: Prisma.UserKeyBundleCreateNestedOneWithoutUserInput
+  publicKey?: Prisma.UserPublicKeyCreateNestedOneWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutSentFriendRequestsInput = {
@@ -496,6 +540,8 @@ export type UserUncheckedCreateWithoutSentFriendRequestsInput = {
   receivedFriendRequests?: Prisma.FriendshipUncheckedCreateNestedManyWithoutFriendInput
   sentMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutSenderInput
   receivedMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutReceiverInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedCreateNestedOneWithoutUserInput
+  publicKey?: Prisma.UserPublicKeyUncheckedCreateNestedOneWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutSentFriendRequestsInput = {
@@ -515,6 +561,8 @@ export type UserCreateWithoutReceivedFriendRequestsInput = {
   sentFriendRequests?: Prisma.FriendshipCreateNestedManyWithoutUserInput
   sentMessages?: Prisma.ChatMessageCreateNestedManyWithoutSenderInput
   receivedMessages?: Prisma.ChatMessageCreateNestedManyWithoutReceiverInput
+  keyBundle?: Prisma.UserKeyBundleCreateNestedOneWithoutUserInput
+  publicKey?: Prisma.UserPublicKeyCreateNestedOneWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutReceivedFriendRequestsInput = {
@@ -529,6 +577,8 @@ export type UserUncheckedCreateWithoutReceivedFriendRequestsInput = {
   sentFriendRequests?: Prisma.FriendshipUncheckedCreateNestedManyWithoutUserInput
   sentMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutSenderInput
   receivedMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutReceiverInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedCreateNestedOneWithoutUserInput
+  publicKey?: Prisma.UserPublicKeyUncheckedCreateNestedOneWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutReceivedFriendRequestsInput = {
@@ -559,6 +609,8 @@ export type UserUpdateWithoutSentFriendRequestsInput = {
   receivedFriendRequests?: Prisma.FriendshipUpdateManyWithoutFriendNestedInput
   sentMessages?: Prisma.ChatMessageUpdateManyWithoutSenderNestedInput
   receivedMessages?: Prisma.ChatMessageUpdateManyWithoutReceiverNestedInput
+  keyBundle?: Prisma.UserKeyBundleUpdateOneWithoutUserNestedInput
+  publicKey?: Prisma.UserPublicKeyUpdateOneWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSentFriendRequestsInput = {
@@ -573,6 +625,8 @@ export type UserUncheckedUpdateWithoutSentFriendRequestsInput = {
   receivedFriendRequests?: Prisma.FriendshipUncheckedUpdateManyWithoutFriendNestedInput
   sentMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutSenderNestedInput
   receivedMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutReceiverNestedInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedUpdateOneWithoutUserNestedInput
+  publicKey?: Prisma.UserPublicKeyUncheckedUpdateOneWithoutUserNestedInput
 }
 
 export type UserUpsertWithoutReceivedFriendRequestsInput = {
@@ -598,6 +652,8 @@ export type UserUpdateWithoutReceivedFriendRequestsInput = {
   sentFriendRequests?: Prisma.FriendshipUpdateManyWithoutUserNestedInput
   sentMessages?: Prisma.ChatMessageUpdateManyWithoutSenderNestedInput
   receivedMessages?: Prisma.ChatMessageUpdateManyWithoutReceiverNestedInput
+  keyBundle?: Prisma.UserKeyBundleUpdateOneWithoutUserNestedInput
+  publicKey?: Prisma.UserPublicKeyUpdateOneWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutReceivedFriendRequestsInput = {
@@ -612,6 +668,8 @@ export type UserUncheckedUpdateWithoutReceivedFriendRequestsInput = {
   sentFriendRequests?: Prisma.FriendshipUncheckedUpdateManyWithoutUserNestedInput
   sentMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutSenderNestedInput
   receivedMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutReceiverNestedInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedUpdateOneWithoutUserNestedInput
+  publicKey?: Prisma.UserPublicKeyUncheckedUpdateOneWithoutUserNestedInput
 }
 
 export type UserCreateWithoutSentMessagesInput = {
@@ -626,6 +684,8 @@ export type UserCreateWithoutSentMessagesInput = {
   sentFriendRequests?: Prisma.FriendshipCreateNestedManyWithoutUserInput
   receivedFriendRequests?: Prisma.FriendshipCreateNestedManyWithoutFriendInput
   receivedMessages?: Prisma.ChatMessageCreateNestedManyWithoutReceiverInput
+  keyBundle?: Prisma.UserKeyBundleCreateNestedOneWithoutUserInput
+  publicKey?: Prisma.UserPublicKeyCreateNestedOneWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutSentMessagesInput = {
@@ -640,6 +700,8 @@ export type UserUncheckedCreateWithoutSentMessagesInput = {
   sentFriendRequests?: Prisma.FriendshipUncheckedCreateNestedManyWithoutUserInput
   receivedFriendRequests?: Prisma.FriendshipUncheckedCreateNestedManyWithoutFriendInput
   receivedMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutReceiverInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedCreateNestedOneWithoutUserInput
+  publicKey?: Prisma.UserPublicKeyUncheckedCreateNestedOneWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutSentMessagesInput = {
@@ -659,6 +721,8 @@ export type UserCreateWithoutReceivedMessagesInput = {
   sentFriendRequests?: Prisma.FriendshipCreateNestedManyWithoutUserInput
   receivedFriendRequests?: Prisma.FriendshipCreateNestedManyWithoutFriendInput
   sentMessages?: Prisma.ChatMessageCreateNestedManyWithoutSenderInput
+  keyBundle?: Prisma.UserKeyBundleCreateNestedOneWithoutUserInput
+  publicKey?: Prisma.UserPublicKeyCreateNestedOneWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutReceivedMessagesInput = {
@@ -673,6 +737,8 @@ export type UserUncheckedCreateWithoutReceivedMessagesInput = {
   sentFriendRequests?: Prisma.FriendshipUncheckedCreateNestedManyWithoutUserInput
   receivedFriendRequests?: Prisma.FriendshipUncheckedCreateNestedManyWithoutFriendInput
   sentMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutSenderInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedCreateNestedOneWithoutUserInput
+  publicKey?: Prisma.UserPublicKeyUncheckedCreateNestedOneWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutReceivedMessagesInput = {
@@ -703,6 +769,8 @@ export type UserUpdateWithoutSentMessagesInput = {
   sentFriendRequests?: Prisma.FriendshipUpdateManyWithoutUserNestedInput
   receivedFriendRequests?: Prisma.FriendshipUpdateManyWithoutFriendNestedInput
   receivedMessages?: Prisma.ChatMessageUpdateManyWithoutReceiverNestedInput
+  keyBundle?: Prisma.UserKeyBundleUpdateOneWithoutUserNestedInput
+  publicKey?: Prisma.UserPublicKeyUpdateOneWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSentMessagesInput = {
@@ -717,6 +785,8 @@ export type UserUncheckedUpdateWithoutSentMessagesInput = {
   sentFriendRequests?: Prisma.FriendshipUncheckedUpdateManyWithoutUserNestedInput
   receivedFriendRequests?: Prisma.FriendshipUncheckedUpdateManyWithoutFriendNestedInput
   receivedMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutReceiverNestedInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedUpdateOneWithoutUserNestedInput
+  publicKey?: Prisma.UserPublicKeyUncheckedUpdateOneWithoutUserNestedInput
 }
 
 export type UserUpsertWithoutReceivedMessagesInput = {
@@ -742,6 +812,8 @@ export type UserUpdateWithoutReceivedMessagesInput = {
   sentFriendRequests?: Prisma.FriendshipUpdateManyWithoutUserNestedInput
   receivedFriendRequests?: Prisma.FriendshipUpdateManyWithoutFriendNestedInput
   sentMessages?: Prisma.ChatMessageUpdateManyWithoutSenderNestedInput
+  keyBundle?: Prisma.UserKeyBundleUpdateOneWithoutUserNestedInput
+  publicKey?: Prisma.UserPublicKeyUpdateOneWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutReceivedMessagesInput = {
@@ -756,6 +828,8 @@ export type UserUncheckedUpdateWithoutReceivedMessagesInput = {
   sentFriendRequests?: Prisma.FriendshipUncheckedUpdateManyWithoutUserNestedInput
   receivedFriendRequests?: Prisma.FriendshipUncheckedUpdateManyWithoutFriendNestedInput
   sentMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutSenderNestedInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedUpdateOneWithoutUserNestedInput
+  publicKey?: Prisma.UserPublicKeyUncheckedUpdateOneWithoutUserNestedInput
 }
 
 export type UserCreateWithoutRolesInput = {
@@ -770,6 +844,8 @@ export type UserCreateWithoutRolesInput = {
   receivedFriendRequests?: Prisma.FriendshipCreateNestedManyWithoutFriendInput
   sentMessages?: Prisma.ChatMessageCreateNestedManyWithoutSenderInput
   receivedMessages?: Prisma.ChatMessageCreateNestedManyWithoutReceiverInput
+  keyBundle?: Prisma.UserKeyBundleCreateNestedOneWithoutUserInput
+  publicKey?: Prisma.UserPublicKeyCreateNestedOneWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutRolesInput = {
@@ -784,6 +860,8 @@ export type UserUncheckedCreateWithoutRolesInput = {
   receivedFriendRequests?: Prisma.FriendshipUncheckedCreateNestedManyWithoutFriendInput
   sentMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutSenderInput
   receivedMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutReceiverInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedCreateNestedOneWithoutUserInput
+  publicKey?: Prisma.UserPublicKeyUncheckedCreateNestedOneWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutRolesInput = {
@@ -814,6 +892,8 @@ export type UserUpdateWithoutRolesInput = {
   receivedFriendRequests?: Prisma.FriendshipUpdateManyWithoutFriendNestedInput
   sentMessages?: Prisma.ChatMessageUpdateManyWithoutSenderNestedInput
   receivedMessages?: Prisma.ChatMessageUpdateManyWithoutReceiverNestedInput
+  keyBundle?: Prisma.UserKeyBundleUpdateOneWithoutUserNestedInput
+  publicKey?: Prisma.UserPublicKeyUpdateOneWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutRolesInput = {
@@ -828,6 +908,168 @@ export type UserUncheckedUpdateWithoutRolesInput = {
   receivedFriendRequests?: Prisma.FriendshipUncheckedUpdateManyWithoutFriendNestedInput
   sentMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutSenderNestedInput
   receivedMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutReceiverNestedInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedUpdateOneWithoutUserNestedInput
+  publicKey?: Prisma.UserPublicKeyUncheckedUpdateOneWithoutUserNestedInput
+}
+
+export type UserCreateWithoutPublicKeyInput = {
+  id?: string
+  email: string
+  name?: string | null
+  password: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  roles?: Prisma.UserRoleCreateNestedManyWithoutUserInput
+  sessions?: Prisma.AuthSessionCreateNestedManyWithoutUserInput
+  sentFriendRequests?: Prisma.FriendshipCreateNestedManyWithoutUserInput
+  receivedFriendRequests?: Prisma.FriendshipCreateNestedManyWithoutFriendInput
+  sentMessages?: Prisma.ChatMessageCreateNestedManyWithoutSenderInput
+  receivedMessages?: Prisma.ChatMessageCreateNestedManyWithoutReceiverInput
+  keyBundle?: Prisma.UserKeyBundleCreateNestedOneWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutPublicKeyInput = {
+  id?: string
+  email: string
+  name?: string | null
+  password: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  roles?: Prisma.UserRoleUncheckedCreateNestedManyWithoutUserInput
+  sessions?: Prisma.AuthSessionUncheckedCreateNestedManyWithoutUserInput
+  sentFriendRequests?: Prisma.FriendshipUncheckedCreateNestedManyWithoutUserInput
+  receivedFriendRequests?: Prisma.FriendshipUncheckedCreateNestedManyWithoutFriendInput
+  sentMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutSenderInput
+  receivedMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutReceiverInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedCreateNestedOneWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutPublicKeyInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPublicKeyInput, Prisma.UserUncheckedCreateWithoutPublicKeyInput>
+}
+
+export type UserUpsertWithoutPublicKeyInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPublicKeyInput, Prisma.UserUncheckedUpdateWithoutPublicKeyInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPublicKeyInput, Prisma.UserUncheckedCreateWithoutPublicKeyInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutPublicKeyInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPublicKeyInput, Prisma.UserUncheckedUpdateWithoutPublicKeyInput>
+}
+
+export type UserUpdateWithoutPublicKeyInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  roles?: Prisma.UserRoleUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.AuthSessionUpdateManyWithoutUserNestedInput
+  sentFriendRequests?: Prisma.FriendshipUpdateManyWithoutUserNestedInput
+  receivedFriendRequests?: Prisma.FriendshipUpdateManyWithoutFriendNestedInput
+  sentMessages?: Prisma.ChatMessageUpdateManyWithoutSenderNestedInput
+  receivedMessages?: Prisma.ChatMessageUpdateManyWithoutReceiverNestedInput
+  keyBundle?: Prisma.UserKeyBundleUpdateOneWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutPublicKeyInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  roles?: Prisma.UserRoleUncheckedUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.AuthSessionUncheckedUpdateManyWithoutUserNestedInput
+  sentFriendRequests?: Prisma.FriendshipUncheckedUpdateManyWithoutUserNestedInput
+  receivedFriendRequests?: Prisma.FriendshipUncheckedUpdateManyWithoutFriendNestedInput
+  sentMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutSenderNestedInput
+  receivedMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutReceiverNestedInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedUpdateOneWithoutUserNestedInput
+}
+
+export type UserCreateWithoutKeyBundleInput = {
+  id?: string
+  email: string
+  name?: string | null
+  password: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  roles?: Prisma.UserRoleCreateNestedManyWithoutUserInput
+  sessions?: Prisma.AuthSessionCreateNestedManyWithoutUserInput
+  sentFriendRequests?: Prisma.FriendshipCreateNestedManyWithoutUserInput
+  receivedFriendRequests?: Prisma.FriendshipCreateNestedManyWithoutFriendInput
+  sentMessages?: Prisma.ChatMessageCreateNestedManyWithoutSenderInput
+  receivedMessages?: Prisma.ChatMessageCreateNestedManyWithoutReceiverInput
+  publicKey?: Prisma.UserPublicKeyCreateNestedOneWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutKeyBundleInput = {
+  id?: string
+  email: string
+  name?: string | null
+  password: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  roles?: Prisma.UserRoleUncheckedCreateNestedManyWithoutUserInput
+  sessions?: Prisma.AuthSessionUncheckedCreateNestedManyWithoutUserInput
+  sentFriendRequests?: Prisma.FriendshipUncheckedCreateNestedManyWithoutUserInput
+  receivedFriendRequests?: Prisma.FriendshipUncheckedCreateNestedManyWithoutFriendInput
+  sentMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutSenderInput
+  receivedMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutReceiverInput
+  publicKey?: Prisma.UserPublicKeyUncheckedCreateNestedOneWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutKeyBundleInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutKeyBundleInput, Prisma.UserUncheckedCreateWithoutKeyBundleInput>
+}
+
+export type UserUpsertWithoutKeyBundleInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutKeyBundleInput, Prisma.UserUncheckedUpdateWithoutKeyBundleInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutKeyBundleInput, Prisma.UserUncheckedCreateWithoutKeyBundleInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutKeyBundleInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutKeyBundleInput, Prisma.UserUncheckedUpdateWithoutKeyBundleInput>
+}
+
+export type UserUpdateWithoutKeyBundleInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  roles?: Prisma.UserRoleUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.AuthSessionUpdateManyWithoutUserNestedInput
+  sentFriendRequests?: Prisma.FriendshipUpdateManyWithoutUserNestedInput
+  receivedFriendRequests?: Prisma.FriendshipUpdateManyWithoutFriendNestedInput
+  sentMessages?: Prisma.ChatMessageUpdateManyWithoutSenderNestedInput
+  receivedMessages?: Prisma.ChatMessageUpdateManyWithoutReceiverNestedInput
+  publicKey?: Prisma.UserPublicKeyUpdateOneWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutKeyBundleInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  roles?: Prisma.UserRoleUncheckedUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.AuthSessionUncheckedUpdateManyWithoutUserNestedInput
+  sentFriendRequests?: Prisma.FriendshipUncheckedUpdateManyWithoutUserNestedInput
+  receivedFriendRequests?: Prisma.FriendshipUncheckedUpdateManyWithoutFriendNestedInput
+  sentMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutSenderNestedInput
+  receivedMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutReceiverNestedInput
+  publicKey?: Prisma.UserPublicKeyUncheckedUpdateOneWithoutUserNestedInput
 }
 
 export type UserCreateWithoutSessionsInput = {
@@ -842,6 +1084,8 @@ export type UserCreateWithoutSessionsInput = {
   receivedFriendRequests?: Prisma.FriendshipCreateNestedManyWithoutFriendInput
   sentMessages?: Prisma.ChatMessageCreateNestedManyWithoutSenderInput
   receivedMessages?: Prisma.ChatMessageCreateNestedManyWithoutReceiverInput
+  keyBundle?: Prisma.UserKeyBundleCreateNestedOneWithoutUserInput
+  publicKey?: Prisma.UserPublicKeyCreateNestedOneWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutSessionsInput = {
@@ -856,6 +1100,8 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   receivedFriendRequests?: Prisma.FriendshipUncheckedCreateNestedManyWithoutFriendInput
   sentMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutSenderInput
   receivedMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutReceiverInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedCreateNestedOneWithoutUserInput
+  publicKey?: Prisma.UserPublicKeyUncheckedCreateNestedOneWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutSessionsInput = {
@@ -886,6 +1132,8 @@ export type UserUpdateWithoutSessionsInput = {
   receivedFriendRequests?: Prisma.FriendshipUpdateManyWithoutFriendNestedInput
   sentMessages?: Prisma.ChatMessageUpdateManyWithoutSenderNestedInput
   receivedMessages?: Prisma.ChatMessageUpdateManyWithoutReceiverNestedInput
+  keyBundle?: Prisma.UserKeyBundleUpdateOneWithoutUserNestedInput
+  publicKey?: Prisma.UserPublicKeyUpdateOneWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -900,6 +1148,8 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   receivedFriendRequests?: Prisma.FriendshipUncheckedUpdateManyWithoutFriendNestedInput
   sentMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutSenderNestedInput
   receivedMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutReceiverNestedInput
+  keyBundle?: Prisma.UserKeyBundleUncheckedUpdateOneWithoutUserNestedInput
+  publicKey?: Prisma.UserPublicKeyUncheckedUpdateOneWithoutUserNestedInput
 }
 
 
@@ -991,6 +1241,8 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   receivedFriendRequests?: boolean | Prisma.User$receivedFriendRequestsArgs<ExtArgs>
   sentMessages?: boolean | Prisma.User$sentMessagesArgs<ExtArgs>
   receivedMessages?: boolean | Prisma.User$receivedMessagesArgs<ExtArgs>
+  keyBundle?: boolean | Prisma.User$keyBundleArgs<ExtArgs>
+  publicKey?: boolean | Prisma.User$publicKeyArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1029,6 +1281,8 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   receivedFriendRequests?: boolean | Prisma.User$receivedFriendRequestsArgs<ExtArgs>
   sentMessages?: boolean | Prisma.User$sentMessagesArgs<ExtArgs>
   receivedMessages?: boolean | Prisma.User$receivedMessagesArgs<ExtArgs>
+  keyBundle?: boolean | Prisma.User$keyBundleArgs<ExtArgs>
+  publicKey?: boolean | Prisma.User$publicKeyArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1043,6 +1297,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     receivedFriendRequests: Prisma.$FriendshipPayload<ExtArgs>[]
     sentMessages: Prisma.$ChatMessagePayload<ExtArgs>[]
     receivedMessages: Prisma.$ChatMessagePayload<ExtArgs>[]
+    keyBundle: Prisma.$UserKeyBundlePayload<ExtArgs> | null
+    publicKey: Prisma.$UserPublicKeyPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1451,6 +1707,8 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   receivedFriendRequests<T extends Prisma.User$receivedFriendRequestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$receivedFriendRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FriendshipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   sentMessages<T extends Prisma.User$sentMessagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$sentMessagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ChatMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   receivedMessages<T extends Prisma.User$receivedMessagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$receivedMessagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ChatMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  keyBundle<T extends Prisma.User$keyBundleArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$keyBundleArgs<ExtArgs>>): Prisma.Prisma__UserKeyBundleClient<runtime.Types.Result.GetResult<Prisma.$UserKeyBundlePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  publicKey<T extends Prisma.User$publicKeyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$publicKeyArgs<ExtArgs>>): Prisma.Prisma__UserPublicKeyClient<runtime.Types.Result.GetResult<Prisma.$UserPublicKeyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2020,6 +2278,44 @@ export type User$receivedMessagesArgs<ExtArgs extends runtime.Types.Extensions.I
   take?: number
   skip?: number
   distinct?: Prisma.ChatMessageScalarFieldEnum | Prisma.ChatMessageScalarFieldEnum[]
+}
+
+/**
+ * User.keyBundle
+ */
+export type User$keyBundleArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UserKeyBundle
+   */
+  select?: Prisma.UserKeyBundleSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the UserKeyBundle
+   */
+  omit?: Prisma.UserKeyBundleOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserKeyBundleInclude<ExtArgs> | null
+  where?: Prisma.UserKeyBundleWhereInput
+}
+
+/**
+ * User.publicKey
+ */
+export type User$publicKeyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UserPublicKey
+   */
+  select?: Prisma.UserPublicKeySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the UserPublicKey
+   */
+  omit?: Prisma.UserPublicKeyOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserPublicKeyInclude<ExtArgs> | null
+  where?: Prisma.UserPublicKeyWhereInput
 }
 
 /**

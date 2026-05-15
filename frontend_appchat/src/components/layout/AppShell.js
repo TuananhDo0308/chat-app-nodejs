@@ -1,4 +1,6 @@
 const navItems = [
+  { path: "/friends", label: "Bạn bè", hint: "Kết bạn & lời mời" },
+  { path: "/chat", label: "Chat", hint: "Nhắn tin trực tiếp" },
   { path: "/users", label: "Users", hint: "Members" },
   { path: "/roles", label: "Roles", hint: "Access groups" },
   { path: "/permissions", label: "Permissions", hint: "API rules" },

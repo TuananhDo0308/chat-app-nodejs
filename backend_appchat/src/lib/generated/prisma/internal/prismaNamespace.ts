@@ -391,6 +391,9 @@ export const ModelName = {
   Permission: 'Permission',
   UserRole: 'UserRole',
   RolePermission: 'RolePermission',
+  UserPublicKey: 'UserPublicKey',
+  UserKeyBundle: 'UserKeyBundle',
+  OneTimePreKey: 'OneTimePreKey',
   AuthSession: 'AuthSession'
 } as const
 
@@ -407,7 +410,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "friendship" | "chatMessage" | "role" | "permission" | "userRole" | "rolePermission" | "authSession"
+    modelProps: "user" | "friendship" | "chatMessage" | "role" | "permission" | "userRole" | "rolePermission" | "userPublicKey" | "userKeyBundle" | "oneTimePreKey" | "authSession"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -929,6 +932,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    UserPublicKey: {
+      payload: Prisma.$UserPublicKeyPayload<ExtArgs>
+      fields: Prisma.UserPublicKeyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.UserPublicKeyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPublicKeyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.UserPublicKeyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPublicKeyPayload>
+        }
+        findFirst: {
+          args: Prisma.UserPublicKeyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPublicKeyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.UserPublicKeyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPublicKeyPayload>
+        }
+        findMany: {
+          args: Prisma.UserPublicKeyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPublicKeyPayload>[]
+        }
+        create: {
+          args: Prisma.UserPublicKeyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPublicKeyPayload>
+        }
+        createMany: {
+          args: Prisma.UserPublicKeyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.UserPublicKeyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPublicKeyPayload>[]
+        }
+        delete: {
+          args: Prisma.UserPublicKeyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPublicKeyPayload>
+        }
+        update: {
+          args: Prisma.UserPublicKeyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPublicKeyPayload>
+        }
+        deleteMany: {
+          args: Prisma.UserPublicKeyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.UserPublicKeyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.UserPublicKeyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPublicKeyPayload>[]
+        }
+        upsert: {
+          args: Prisma.UserPublicKeyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPublicKeyPayload>
+        }
+        aggregate: {
+          args: Prisma.UserPublicKeyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUserPublicKey>
+        }
+        groupBy: {
+          args: Prisma.UserPublicKeyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserPublicKeyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.UserPublicKeyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserPublicKeyCountAggregateOutputType> | number
+        }
+      }
+    }
+    UserKeyBundle: {
+      payload: Prisma.$UserKeyBundlePayload<ExtArgs>
+      fields: Prisma.UserKeyBundleFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.UserKeyBundleFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserKeyBundlePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.UserKeyBundleFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserKeyBundlePayload>
+        }
+        findFirst: {
+          args: Prisma.UserKeyBundleFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserKeyBundlePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.UserKeyBundleFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserKeyBundlePayload>
+        }
+        findMany: {
+          args: Prisma.UserKeyBundleFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserKeyBundlePayload>[]
+        }
+        create: {
+          args: Prisma.UserKeyBundleCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserKeyBundlePayload>
+        }
+        createMany: {
+          args: Prisma.UserKeyBundleCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.UserKeyBundleCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserKeyBundlePayload>[]
+        }
+        delete: {
+          args: Prisma.UserKeyBundleDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserKeyBundlePayload>
+        }
+        update: {
+          args: Prisma.UserKeyBundleUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserKeyBundlePayload>
+        }
+        deleteMany: {
+          args: Prisma.UserKeyBundleDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.UserKeyBundleUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.UserKeyBundleUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserKeyBundlePayload>[]
+        }
+        upsert: {
+          args: Prisma.UserKeyBundleUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserKeyBundlePayload>
+        }
+        aggregate: {
+          args: Prisma.UserKeyBundleAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUserKeyBundle>
+        }
+        groupBy: {
+          args: Prisma.UserKeyBundleGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserKeyBundleGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.UserKeyBundleCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserKeyBundleCountAggregateOutputType> | number
+        }
+      }
+    }
+    OneTimePreKey: {
+      payload: Prisma.$OneTimePreKeyPayload<ExtArgs>
+      fields: Prisma.OneTimePreKeyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OneTimePreKeyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OneTimePreKeyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OneTimePreKeyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OneTimePreKeyPayload>
+        }
+        findFirst: {
+          args: Prisma.OneTimePreKeyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OneTimePreKeyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OneTimePreKeyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OneTimePreKeyPayload>
+        }
+        findMany: {
+          args: Prisma.OneTimePreKeyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OneTimePreKeyPayload>[]
+        }
+        create: {
+          args: Prisma.OneTimePreKeyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OneTimePreKeyPayload>
+        }
+        createMany: {
+          args: Prisma.OneTimePreKeyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OneTimePreKeyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OneTimePreKeyPayload>[]
+        }
+        delete: {
+          args: Prisma.OneTimePreKeyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OneTimePreKeyPayload>
+        }
+        update: {
+          args: Prisma.OneTimePreKeyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OneTimePreKeyPayload>
+        }
+        deleteMany: {
+          args: Prisma.OneTimePreKeyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OneTimePreKeyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OneTimePreKeyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OneTimePreKeyPayload>[]
+        }
+        upsert: {
+          args: Prisma.OneTimePreKeyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OneTimePreKeyPayload>
+        }
+        aggregate: {
+          args: Prisma.OneTimePreKeyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOneTimePreKey>
+        }
+        groupBy: {
+          args: Prisma.OneTimePreKeyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OneTimePreKeyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OneTimePreKeyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OneTimePreKeyCountAggregateOutputType> | number
+        }
+      }
+    }
     AuthSession: {
       payload: Prisma.$AuthSessionPayload<ExtArgs>
       fields: Prisma.AuthSessionFieldRefs
@@ -1112,6 +1337,39 @@ export const RolePermissionScalarFieldEnum = {
 } as const
 
 export type RolePermissionScalarFieldEnum = (typeof RolePermissionScalarFieldEnum)[keyof typeof RolePermissionScalarFieldEnum]
+
+
+export const UserPublicKeyScalarFieldEnum = {
+  userId: 'userId',
+  publicKey: 'publicKey',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UserPublicKeyScalarFieldEnum = (typeof UserPublicKeyScalarFieldEnum)[keyof typeof UserPublicKeyScalarFieldEnum]
+
+
+export const UserKeyBundleScalarFieldEnum = {
+  userId: 'userId',
+  identityKey: 'identityKey',
+  identitySignKey: 'identitySignKey',
+  signedPreKey: 'signedPreKey',
+  signedPreKeySig: 'signedPreKeySig',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UserKeyBundleScalarFieldEnum = (typeof UserKeyBundleScalarFieldEnum)[keyof typeof UserKeyBundleScalarFieldEnum]
+
+
+export const OneTimePreKeyScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  keyId: 'keyId',
+  publicKey: 'publicKey',
+  used: 'used',
+  createdAt: 'createdAt'
+} as const
+
+export type OneTimePreKeyScalarFieldEnum = (typeof OneTimePreKeyScalarFieldEnum)[keyof typeof OneTimePreKeyScalarFieldEnum]
 
 
 export const AuthSessionScalarFieldEnum = {
@@ -1338,6 +1596,9 @@ export type GlobalOmitConfig = {
   permission?: Prisma.PermissionOmit
   userRole?: Prisma.UserRoleOmit
   rolePermission?: Prisma.RolePermissionOmit
+  userPublicKey?: Prisma.UserPublicKeyOmit
+  userKeyBundle?: Prisma.UserKeyBundleOmit
+  oneTimePreKey?: Prisma.OneTimePreKeyOmit
   authSession?: Prisma.AuthSessionOmit
 }
 
