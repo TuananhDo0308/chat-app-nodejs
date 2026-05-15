@@ -43,3 +43,9 @@ export async function readAllMessage(req: Request, res: Response) {
     await messagesService.readAllMessage(userId as string, friendId as string)
     return res.json({ message: "All messages read successfully" })
 }
+
+export async function getConversationPreviews(req: Request, res: Response) {
+    const { userId } = req.params
+    const previews = await messagesService.getConversationPreviews(userId as string)
+    return sendResponse(res, 200, "Previews fetched", previews)
+}

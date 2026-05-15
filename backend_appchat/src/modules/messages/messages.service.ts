@@ -67,6 +67,7 @@ export async function deleteMessage(messageId: string) {
         where: { id: messageId }
     })
 }
+
 export async function readMessage(messageId: string) {
     return prisma.chatMessage.update({
         where: { id: messageId },
@@ -83,4 +84,20 @@ export async function readAllMessage(userId: string, friendId: string) {
         },
         data: { isRead: true }
     })
+}
+
+// Returns last message per conversation partner (for sidebar preview)
+export async function getConversationPreviews(userId: string) {
+    const msgs = await prisma.chatMessage.findMany({
+        where: { OR: [{ senderId: userId }, { receiverId: userId }] },
+        orderBy: { createdAt: 'desc' },
+        take: 500,
+    })
+    const seen = new Set<string>()
+    const result: typeof msgs = []
+    for (const m of msgs) {
+        const partnerId = m.senderId === userId ? m.receiverId : m.senderId
+        if (!seen.has(partnerId)) { seen.add(partnerId); result.push(m) }
+    }
+    return result
 }
